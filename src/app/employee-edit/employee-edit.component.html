@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        
+        <div class="border shadow rounded p-4 mt-5 m-2">
+            <h3 class="text-center" >Edit User Details</h3>
+            <form>
+                <input type="text" class="form-control mt-4" placeholder="User ID" name="id" [(ngModel)]="employee.id" required pattern="[0-9]*" #employeeid="ngModel">
+                <span class="text-danger" *ngIf="employeeid.invalid && employeeid.touched">Invalid Id</span>
+    
+    
+                <input type="text" class="form-control mt-3" placeholder="Username" name="empname" [(ngModel)]="employee.name" required pattern="[a-zA-Z]{3,}$" #employeename="ngModel">
+                <span class="text-danger" *ngIf="employeename.invalid && employeename.touched">Invalid Username</span>
+    
+    
+                <input type="text" class="form-control mt-3" placeholder="Email" name="empemail" [(ngModel)]="employee.email" required #employeeemail="ngModel">
+                <span class="text-danger" *ngIf="employeeemail.invalid && employeeemail.touched">Invalid Email</span>
+                
+                
+                <select class="form-select mt-3" id="inputGroupSelect01" name="empstatus" [(ngModel)]="employee.status" required  #employeestatus="ngModel">
+                    <option value="1">Active</option>
+                    <option value="2">Inactive</option>
+                  </select>
+                  <span *ngIf="employeestatus.invalid && employeestatus.touched" class="text-danger">Invalid status</span>
+    
+                  <div class="d-flex">
+                      <button class="btn btn-warning w-50 me-3  mt-4" (click)="Cancelbutton(employee.id)">Cancel</button>
+                      <button class="btn btn-success w-50 mt-4" (click)="editEmployee(employee.id)">Update</button>
+                   
+                  </div>
+    
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
